@@ -67,7 +67,7 @@
 }
 
 img {
-  display: inline-block;
+  display: block;
   max-width: 100%;
 }
 
@@ -83,4 +83,11 @@ body {
   font-weight: 700;
   font-style: normal;
   background-color: var(--grey-200);
+  height: 100vh;
+}
+
+/* Header */
+.logo {
+  margin-block: 2.5rem;
+  margin-inline: auto;
 }
