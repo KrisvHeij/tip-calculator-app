@@ -1,0 +1,64 @@
+/* .space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+} */  
+
+/* Custom properties */
+:root {
+  /* Colors */
+  --white: hsl(0 100% 100%);
+  --black: hsl(0 0% 0%);
+  --grey-600: hsl(180 25% 32%);
+  --grey-550: hsl(180, 18% 40%);
+  --grey-500: hsl(186 14% 43%);
+  --grey-400: hsl(184 14% 56%);
+  --grey-300: hsl(184 19% 68%);
+  --grey-200: hsl(185 41% 84%);
+  --grey-50: hsl(189 47% 97%);
+  --green-900: hsl(183 100% 15%);
+  --green-800: hsl(183 85% 21%);
+  --green-750: hsl(183 79% 24%);
+  --green-400: hsl(172 67% 45%);
+  --green-200: hsl(173 61% 77%);
+  --orange-400: hsl(13 70% 60%);
+  /* Spacing */
+  --spacing-0: 0;
+  --spacing-100: 0.5rem;
+  --spacing-200: 1rem;
+  --spacing-300: 1.5rem;
+  --spacing-400: 2rem;
+  --spacing-600: 3rem;
+  --spacing-1000: 5rem;
+  --spacing-1200: 6rem;
+  --spacing-1500: 7.5rem;
+  --spacing-1600: 8rem;
+}
+
+/* Typography */
+.text-preset-1 {
+  font-size: 3rem;
+  line-height: 4.4375rem;
+  letter-spacing: -0.0625rem;
+}
+.text-preset-2 {
+  font-size: 2rem;
+  line-height: 2.9375rem;
+  letter-spacing: -0.041875rem;
+}
+.text-preset-3 {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+}
+.text-preset-4 {
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+}
+.text-preset-5 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-preset-6 {
+  font-size: 0.8125rem;
+  line-height: 1.1875rem;
+}
