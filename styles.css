@@ -4,7 +4,7 @@
   --white: hsl(0 100% 100%);
   --black: hsl(0 0% 0%);
   --grey-600: hsl(180 25% 32%);
-  --grey-550: hsl(180, 18% 40%);
+  --grey-550: hsl(180 18% 40%);
   --grey-500: hsl(186 14% 43%);
   --grey-400: hsl(184 14% 56%);
   --grey-300: hsl(184 19% 68%);
@@ -73,9 +73,12 @@ img {
 
 button,
 input {
-  /* border: none; */
+  display: block;
+  border: none;
   outline: none;
+  font-family: inherit;
   font-size: inherit;
+  font-weight: inherit;
 }
 
 body {
@@ -83,11 +86,81 @@ body {
   font-weight: 700;
   font-style: normal;
   background-color: var(--grey-200);
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 /* Header */
 .logo {
   margin-block: 2.5rem;
   margin-inline: auto;
+}
+
+/* Main */
+.container {
+  background-color: var(--white);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-block: var(--spacing-400);
+  padding-inline: var(--spacing-300);
+}
+
+/* Input container */
+.input-group {
+  margin-block-end: var(--spacing-400);
+  padding-inline: var(--spacing-100);
+}
+
+.input-container p {
+  margin-block-end: var(--spacing-100);
+  color: var(--grey-500);
+}
+
+.input {
+  width: 100%;
+  padding-block: var(--spacing-100);
+  padding-inline: var(--spacing-200);
+  font-weight: inherit;
+  color: var(--grey-300);
+  background-color: var(--grey-50);
+  background-position: 1rem;
+  background-repeat: no-repeat;
+  border-radius: 0.3125rem;
+  text-align: right;
+}
+
+.input::placeholder {
+  color: inherit;
+}
+
+.input-bill {
+  background-image: url(./images/icon-dollar.svg);
+}
+
+.input-people {
+  background-image: url(./images/icon-person.svg);
+}
+
+.tip-group {
+  max-width: 100%;
+  display: grid;
+  gap: var(--spacing-200);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.tip {
+  width: 100%;
+  padding-block: var(--spacing-100);
+  background-color: var(--green-900);
+  color: var(--white);
+  border-radius: 0.3125rem;
+}
+
+.input-custom {
+  color: var(--grey-550);
+  background-color: var(--grey-50);
+  text-align: center;
+}
+
+.input-custom::placeholder {
+  color: inherit;
 }
