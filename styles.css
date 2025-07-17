@@ -110,7 +110,9 @@ body {
   padding-inline: var(--spacing-100);
 }
 
-.input-container p {
+.input-group-header {
+  display: flex;
+  justify-content: space-between;
   margin-block-end: var(--spacing-100);
   color: var(--grey-500);
 }
@@ -126,6 +128,12 @@ body {
   background-repeat: no-repeat;
   border-radius: 0.3125rem;
   text-align: right;
+  cursor: pointer;
+}
+
+.input:hover,
+.input:focus {
+   outline: 2px solid var(--green-400);
 }
 
 .input::placeholder {
@@ -153,6 +161,13 @@ body {
   background-color: var(--green-900);
   color: var(--white);
   border-radius: 0.3125rem;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.tip:hover:not(:last-child) {
+  background-color: var(--green-200);
+  color: var(--green-900);
 }
 
 .input-custom {
@@ -163,4 +178,58 @@ body {
 
 .input-custom::placeholder {
   color: inherit;
+}
+
+/* Output container */
+.output-container {
+  padding-block: var(--spacing-300);
+  padding-inline: var(--spacing-300);
+  background-color: var(--green-900);
+  border-radius: 0.9375rem;
+}
+
+.output-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.output-group:first-of-type {
+  margin-block-end: var(--spacing-300);
+}
+
+.output-group:nth-of-type(2) {
+  margin-block-end: var(--spacing-400);
+}
+
+.label-main-text {
+  color: var(--white);
+}
+
+.label-sub-text {
+  color: var(--grey-400);
+}
+
+.output {
+  color: var(--green-400);
+}
+
+.btn {
+  width: 100%;
+  padding-block: var(--spacing-100);
+  background-color: var(--green-750);
+  color: var(--green-800);
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 250ms ease;
+}
+
+.btn:hover {
+  background-color: var(--green-200);
+}
+
+/* Error state for input */
+.error-msg {
+  display: none;
+  color: var(--orange-400);
 }

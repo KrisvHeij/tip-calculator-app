@@ -28,15 +28,18 @@
       <div class="container">
         <div class="input-container">
           <div class="input-group">
-            <p class=".text-preset-5">Bill</p>
+            <div class="input-group-header">
+              <p class="text-preset-5">Bill</p>
+              <p class="error-msg">Can't be zero</p>
+            </div>
             <input
               class="input input-bill text-preset-3"
-              type="number"
+              type="text"
               placeholder="0"
             />
           </div>
           <div class="input-group">
-            <p class=".text-preset-5">Select Tip %</p>
+            <p class="text-preset-5">Select Tip %</p>
             <div class="tip-group">
               <button class="tip text-preset-3" type="button">5%</button>
               <button class="tip text-preset-3" type="button">10%</button>
@@ -46,15 +49,20 @@
               <input
                 class="tip input-custom text-preset-3"
                 type="number"
+                min="1"
+                max="100"
                 placeholder="Custom"
               />
             </div>
           </div>
           <div class="input-group">
-            <p class=".text-preset-5">Number of People</p>
+            <div class="input-group-header">
+              <p class="text-preset-5">Number of People</p>
+              <p class="error-msg">Cant'be zero</p>
+            </div>
             <input
               class="input input-people text-preset-3"
-              type="number"
+              type="text"
               placeholder="0"
             />
           </div>
@@ -63,25 +71,19 @@
         <div class="output-container">
           <div class="output-group">
             <div class="output-label">
-              <p class="label-main-text">Tip Amount</p>
+              <p class="label-main-text text-preset-5">Tip Amount</p>
               <p class="label-sub-text">/ person</p>
             </div>
-            <div class="output">
-              <img src="./images/icon-dollar.svg" alt="" />
-              <p>0.00</p>
-            </div>
+            <p class="output text-preset-2">$0.00</p>
           </div>
           <div class="output-group">
-            <div class="out-label">
-              <p class="label-main-text">Total</p>
+            <div class="output-label">
+              <p class="label-main-text text-preset-5">Total</p>
               <p class="label-sub-text">/ person</p>
             </div>
-            <div class="output">
-              <img src="./images/icon-dollar.svg" alt="" />
-              <p>0.00</p>
-            </div>
+            <p class="output text-preset-2">$0.00</p>
           </div>
-          <button type="button">Reset</button>
+          <button class="btn text-preset-4" type="button">Reset</button>
         </div>
       </div>
     </main>
