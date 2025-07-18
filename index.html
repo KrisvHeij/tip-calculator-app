@@ -30,16 +30,17 @@
           <div class="input-group">
             <div class="input-group-header">
               <p class="text-preset-5">Bill</p>
-              <p class="error-msg">Can't be zero</p>
+              <p id="bill-error" class="error-msg hidden">Can't be zero</p>
             </div>
             <input
+              id="bill"
               class="input input-bill text-preset-3"
               type="text"
               placeholder="0"
             />
           </div>
           <div class="input-group">
-            <p class="text-preset-5">Select Tip %</p>
+            <p class="input-group-header text-preset-5">Select Tip %</p>
             <div class="tip-group">
               <button class="tip text-preset-3" type="button">5%</button>
               <button class="tip text-preset-3" type="button">10%</button>
@@ -58,7 +59,7 @@
           <div class="input-group">
             <div class="input-group-header">
               <p class="text-preset-5">Number of People</p>
-              <p class="error-msg">Cant'be zero</p>
+              <p id="people-error" class="error-msg hidden">Cant'be zero</p>
             </div>
             <input
               class="input input-people text-preset-3"

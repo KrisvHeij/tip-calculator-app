@@ -13,7 +13,7 @@
   --green-900: hsl(183 100% 15%);
   --green-800: hsl(183 85% 21%);
   --green-750: hsl(183 79% 24%);
-  --green-400: hsl(172 67% 45%);
+  --green-400: hsl(172 67% 45%); 
   --green-200: hsl(173 61% 77%);
   --orange-400: hsl(13 70% 60%);
   /* Spacing */
@@ -122,7 +122,7 @@ body {
   padding-block: var(--spacing-100);
   padding-inline: var(--spacing-200);
   font-weight: inherit;
-  color: var(--grey-300);
+  color: var(--green-900);
   background-color: var(--grey-50);
   background-position: 1rem;
   background-repeat: no-repeat;
@@ -137,7 +137,7 @@ body {
 }
 
 .input::placeholder {
-  color: inherit;
+  color: var(--grey-300);
 }
 
 .input-bill {
@@ -146,6 +146,10 @@ body {
 
 .input-people {
   background-image: url(./images/icon-person.svg);
+}
+
+.error-msg {
+  color: var(--orange-400);
 }
 
 .tip-group {
@@ -228,8 +232,13 @@ body {
   background-color: var(--green-200);
 }
 
-/* Error state for input */
-.error-msg {
+/* JS classes */
+/* Active state for tip + reset button */
+.active {
+  background-color: var(--green-400);
+  color: var(--green-900);
+}
+
+.hidden {
   display: none;
-  color: var(--orange-400);
 }
