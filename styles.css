@@ -36,7 +36,7 @@
   letter-spacing: -0.0625rem;
 }
 .text-preset-2 {
-  font-size: 2rem;
+  font-size: clamp(2rem, 7.1111vw + .3333rem, 3rem);
   line-height: 2.9375rem;
   letter-spacing: -0.041875rem;
 }
@@ -91,15 +91,16 @@ body {
 
 /* Header */
 .logo {
-  margin-block: 2.5rem;
+  margin-block-start: var(--spacing-600);
+  margin-block-end: var(--spacing-400);
   margin-inline: auto;
 }
 
 /* Main */
 .container {
   background-color: var(--white);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 0.9375rem;
+  border-top-right-radius: 0.9375rem;
   padding-block: var(--spacing-400);
   padding-inline: var(--spacing-300);
 }
@@ -241,4 +242,33 @@ body {
 
 .hidden {
   display: none;
+}
+
+/* Media Queries */
+/* Media query > 600px (37.5rem) */
+@media (min-width: 37.5rem) {
+  .container {
+    max-width: 38rem;
+    margin-inline: auto;
+    padding-block: var(--spacing-600);
+    padding-inline: var(--spacing-1000);
+    border-radius: 0.9375rem; 
+  }
+
+  .input-group {
+    margin-block-end: var(--spacing-300);
+  }
+
+  .input-group:last-of-type {
+    margin-block-end: var(--spacing-400);
+  }
+
+  .tip-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .output-container {
+    padding-block: var(--spacing-600);
+    padding-inline: var(--spacing-600);
+  }
 }
