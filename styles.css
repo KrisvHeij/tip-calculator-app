@@ -23,9 +23,6 @@
   --spacing-400: 2rem;
   --spacing-600: 3rem;
   --spacing-1000: 5rem;
-  --spacing-1200: 6rem;
-  --spacing-1500: 7.5rem;
-  --spacing-1600: 8rem;
 }
 
 /* Typography */
@@ -36,7 +33,6 @@
 }
 .text-preset-2 {
   font-size: clamp(2rem, 7.1111vw + .3333rem, 3rem);
-  /* line-height: 2.9375rem; */
   letter-spacing: -0.041875rem;
 }
 .text-preset-3 {
@@ -85,7 +81,6 @@ body {
   font-weight: 700;
   font-style: normal;
   background-color: var(--grey-200);
-  /* height: 100vh; */
 }
 
 /* Header */
