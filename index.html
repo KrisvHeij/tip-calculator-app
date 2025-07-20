@@ -42,16 +42,24 @@
           <div class="input-group">
             <p class="input-group-header text-preset-5">Select Tip %</p>
             <div class="tip-group">
-              <button class="tip text-preset-3" type="button">5%</button>
-              <button class="tip text-preset-3" type="button">10%</button>
-              <button class="tip text-preset-3" type="button">15%</button>
-              <button class="tip text-preset-3" type="button">25%</button>
-              <button class="tip text-preset-3" type="button">50%</button>
+              <button class="tip text-preset-3" type="button" value="5">
+                5%
+              </button>
+              <button class="tip text-preset-3" type="button" value="10">
+                10%
+              </button>
+              <button class="tip text-preset-3" type="button" value="15">
+                15%
+              </button>
+              <button class="tip text-preset-3" type="button" value="25">
+                25%
+              </button>
+              <button class="tip text-preset-3" type="button" value="50">
+                50%
+              </button>
               <input
                 class="tip input-custom text-preset-3"
-                type="number"
-                min="1"
-                max="100"
+                type="text"
                 placeholder="Custom"
               />
             </div>
@@ -62,6 +70,7 @@
               <p id="people-error" class="error-msg hidden">Cant'be zero</p>
             </div>
             <input
+              id="people"
               class="input input-people text-preset-3"
               type="text"
               placeholder="0"
@@ -75,14 +84,14 @@
               <p class="label-main-text text-preset-5">Tip Amount</p>
               <p class="label-sub-text text-preset-6">/ person</p>
             </div>
-            <p class="output text-preset-2">$0.00</p>
+            <p id="tip-amount" class="output text-preset-2">$0.00</p>
           </div>
           <div class="output-group">
             <div class="output-label">
               <p class="label-main-text text-preset-5">Total</p>
               <p class="label-sub-text text-preset-6">/ person</p>
             </div>
-            <p class="output text-preset-2">$0.00</p>
+            <p id="total-amount" class="output text-preset-2">$0.00</p>
           </div>
           <button class="btn text-preset-4" type="button">Reset</button>
         </div>
