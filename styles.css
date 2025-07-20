@@ -228,17 +228,6 @@ body {
   background-color: var(--green-200);
 }
 
-/* JS classes */
-/* Active state for tip + reset button */
-.active {
-  background-color: var(--green-400);
-  color: var(--green-900);
-}
-
-.hidden {
-  display: none;
-}
-
 /* Media Queries */
 /* Media query > 640px (40rem) */
 @media (min-width: 40rem) {
@@ -313,4 +302,15 @@ body {
   .btn {
    margin-block-start: auto;
   }
+}
+
+/* JS classes */
+/* Active state for tip + reset button */
+.active {
+  background-color: var(--green-400);
+  color: var(--green-900);
+}
+
+.hidden {
+  display: none;
 }
