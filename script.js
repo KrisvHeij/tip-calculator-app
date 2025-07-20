@@ -3,6 +3,7 @@ const people = document.getElementById("people");
 const tipEl = document.getElementById("tip-amount");
 const totalEl = document.getElementById("total-amount");
 const tips = document.querySelectorAll(".tip");
+const customInput = document.querySelector(".input-custom");
 const logo = document.querySelector(".logo");
 
 // const billAmount = getBill();
@@ -45,7 +46,8 @@ const logo = document.querySelector(".logo");
 // calculateAmount();
 
 
-let selectedTip;
+let fixedTip;
+// let customTip;
 
 function getBill()  {
   return parseFloat(bill.value);
@@ -55,18 +57,23 @@ function getTip() {
   tips.forEach((tip) => {
     tip.addEventListener("click", () => {
       tips.forEach(tp => tp.classList.remove("active"));
-
       tip.classList.add("active");
-      selectedTip = tip.value;
-      // return selectedTip;
+
+      fixedTip = tip.value;
     })
   })
 }
+
+function getCustomTip() {
+  return parseFloat(customInput.value);
+}
+
 
 getTip();
 
 logo.addEventListener("click", () => {
   console.log(getBill());
-  console.log(selectedTip)
+  console.log(fixedTip)
+  console.log(getCustomTip());
 })
 
