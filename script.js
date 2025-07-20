@@ -46,8 +46,8 @@ const logo = document.querySelector(".logo");
 // calculateAmount();
 
 
-let fixedTip;
-// let customTip;
+let selectedTip;
+
 
 function getBill()  {
   return parseFloat(bill.value);
@@ -59,21 +59,19 @@ function getTip() {
       tips.forEach(tp => tp.classList.remove("active"));
       tip.classList.add("active");
 
-      fixedTip = tip.value;
+      selectedTip = tip.value;
     })
   })
 }
 
-function getCustomTip() {
-  return parseFloat(customInput.value);
-}
+
 
 
 getTip();
 
 logo.addEventListener("click", () => {
   console.log(getBill());
-  console.log(fixedTip)
+  console.log(selectedTip)
   console.log(getCustomTip());
 })
 
