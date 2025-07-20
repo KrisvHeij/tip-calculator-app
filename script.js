@@ -5,14 +5,14 @@ const totalEl = document.getElementById("total-amount");
 const tips = document.querySelectorAll(".tip");
 const logo = document.querySelector(".logo");
 
-let billAmount;
-let numOfPeople;
+// const billAmount = getBill();
+// let numOfPeople;
 
 
 // function getBill() {
 //     bill.addEventListener("keyup", () => {
 //       billAmount = parseFloat(bill.value);
-//       calculateAmount(billAmount);
+//       // calculateAmount(billAmount);
 //   })
 // }
 
@@ -42,10 +42,31 @@ let numOfPeople;
 // }
 
 // getBill();
-
 // calculateAmount();
 
+
+let selectedTip;
+
+function getBill()  {
+  return parseFloat(bill.value);
+}
+
+function getTip() {
+  tips.forEach((tip) => {
+    tip.addEventListener("click", () => {
+      tips.forEach(tp => tp.classList.remove("active"));
+
+      tip.classList.add("active");
+      selectedTip = tip.value;
+      // return selectedTip;
+    })
+  })
+}
+
+getTip();
+
 logo.addEventListener("click", () => {
-  console.log(bill.value)
+  console.log(getBill());
+  console.log(selectedTip)
 })
 
