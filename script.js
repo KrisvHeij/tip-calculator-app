@@ -4,6 +4,8 @@ const tipEl = document.getElementById("tip-amount");
 const totalEl = document.getElementById("total-amount");
 const tips = document.querySelectorAll(".tip");
 const customInput = document.querySelector(".input-custom");
+const inputContainer = document.querySelector(".input-container");
+
 const logo = document.querySelector(".logo");
 
 // const billAmount = getBill();
@@ -48,7 +50,7 @@ const logo = document.querySelector(".logo");
 
 let selectedTip;
 
-function getBill()  {
+function getBill() {
   return parseFloat(billInput.value);
 }
 
@@ -63,7 +65,7 @@ function getTip() {
       tips.forEach(tp => tp.classList.remove("active"));
       tip.classList.add("active");
 
-      selectedTip = tip.value;
+      selectedTip = parseFloat(tip.value);
     })
   })
 
@@ -83,16 +85,24 @@ function getNumOfPeople() {
   return parseFloat(peopleInput.value);
 }
 
+function calculateTipAmount() {
+
+}
 
 
 getTip();
 
 
 
-window.addEventListener("change", () => {
-  console.log(getBill());
+inputContainer.addEventListener("click", () => {
+  console.log(getBill);
   console.log(selectedTip)
-  console.log(getNumOfPeople());
+  console.log(getNumOfPeople);
+})
+inputContainer.addEventListener("input", () => {
+  console.log(getBill);
+  console.log(selectedTip)
+  console.log(getNumOfPeople);
 })
 
 // 2 EventListeners maken op de inputcontainer : click en input.
