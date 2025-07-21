@@ -6,8 +6,6 @@ const tips = document.querySelectorAll(".tip");
 const customInput = document.querySelector(".input-custom");
 const inputContainer = document.querySelector(".input-container");
 
-const logo = document.querySelector(".logo");
-
 // const billAmount = getBill();
 // let numOfPeople;
 
@@ -54,7 +52,6 @@ function getBill() {
   return parseFloat(billInput.value);
 }
 
-function getTip() {
   // EventListeners op tip-buttons
   tips.forEach((tip) => {
     tip.addEventListener("click", () => {
@@ -79,7 +76,6 @@ function getTip() {
     const inputValue = parseFloat(customInput.value);
     selectedTip = inputValue;
   })
-}
 
 function getNumOfPeople() {
   return parseFloat(peopleInput.value);
@@ -88,25 +84,46 @@ function getNumOfPeople() {
 function calculateTipAmount(bill, tip, people) {
   const tp = tip / 100;
   const totalTip = bill * tp;
-  const tipAmount = totalTip / people;
-  console.log(tipAmount)
+  return  totalTip / people;
+}
+
+function calculateTotal(bill, tip, people) {
+  const tp = tip / 100;
+  const totalAmount = bill + (bill * tp);
+  return totalAmount / people;
+}
+
+function showResults(tip, total) {
+  tipEl.innerText = `$${tip}`;
+  totalEl.innerText = `$${total}`;
+  console.log(tip);
 }
 
 
-getTip();
-
-
-
 inputContainer.addEventListener("click", () => {
-  console.log(getBill);
-  console.log(selectedTip)
-  console.log(getNumOfPeople);
-  calculateTipAmount(100, 30, 2);
-})
-inputContainer.addEventListener("input", () => {
-  console.log(getBill);
-  console.log(selectedTip)
-  console.log(getNumOfPeople);
+  // console.log(getBill());
+  // console.log(selectedTip)
+  // console.log(getNumOfPeople());
+  const bill = getBill();
+  const tip = selectedTip;
+  const people = getNumOfPeople();
+  
+  const tipResult = calculateTipAmount(bill, tip, people);
+  const totalResult = calculateTotal(bill, tip, people);
+  showResults(tipResult, totalResult);
 })
 
-// 2 EventListeners maken op de inputcontainer : click en input.
+inputContainer.addEventListener("input", () => {
+  // console.log(getBill());
+  // console.log(selectedTip)
+  // console.log(getNumOfPeople());
+  const bill = getBill();
+  const tip = selectedTip;
+  const people = getNumOfPeople();
+  
+  const tipResult = calculateTipAmount(bill, tip, people);
+  const totalResult = calculateTotal(bill, tip, people);
+  showResults(tipResult, totalResult);
+})
+
+// Validatie toevoegen als er bijv. iets niet is ingevuld
