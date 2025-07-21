@@ -85,8 +85,11 @@ function getNumOfPeople() {
   return parseFloat(peopleInput.value);
 }
 
-function calculateTipAmount() {
-
+function calculateTipAmount(bill, tip, people) {
+  const tp = tip / 100;
+  const totalTip = bill * tp;
+  const tipAmount = totalTip / people;
+  console.log(tipAmount)
 }
 
 
@@ -98,6 +101,7 @@ inputContainer.addEventListener("click", () => {
   console.log(getBill);
   console.log(selectedTip)
   console.log(getNumOfPeople);
+  calculateTipAmount(100, 30, 2);
 })
 inputContainer.addEventListener("input", () => {
   console.log(getBill);
