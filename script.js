@@ -79,60 +79,38 @@ function resetAll() {
 }
 
 // Event Listeners
-container.addEventListener("click", () => {
-  const bill = getBill();
-  const tip = selectedTip;
-  const people = getNumOfPeople();
+const events = ["click", "input"];
 
-  // Hightlight resetBtn when there is input
-  if (bill || tip || people) {
-    resetBtn.classList.add("active");
-  }
+events.forEach((event) => {
+  container.addEventListener(event, () => {
+    const bill = getBill();
+    const tip = selectedTip;
+    const people = getNumOfPeople();
 
-  // Show error when input is empty
-  if (bill && tip && !people) {
-    showError(peopleError);
-  } else if (!bill && tip && people) {
-    showError(billError);
-  } else {
-    removeError(peopleError);
-    removeError(billError);
-  }
-  
-  const tipResult = calculateTipAmount(bill, tip, people);
-  const totalResult = calculateTotal(bill, tip, people);
+    // Hightlight resetBtn when there is input
+    if (bill || tip || people) {
+      resetBtn.classList.add("active");
+    }
 
-  if (!tipResult || !totalResult) {
-    showResults(0, 0);
-  } else {
-    showResults(tipResult, totalResult);
-  }
-  
-})
-
-container.addEventListener("input", () => {
-  const bill = getBill();
-  const tip = selectedTip;
-  const people = getNumOfPeople();
-
-  // Hightlight resetBtn when there is input
-  if (bill || tip || people) {
-    resetBtn.classList.add("active");
-  }
-
-  // Show error when input is empty
-  if (bill && tip && !people) {
-    showError(peopleError);
-  } else if (!bill && tip && people) {
-    showError(billError);
-  } else {
-    removeError(peopleError);
-    removeError(billError);
-  }
-  
-  const tipResult = calculateTipAmount(bill, tip, people);
-  const totalResult = calculateTotal(bill, tip, people);
-  showResults(tipResult, totalResult);
+    // Show error when input is empty
+    if (bill && tip && !people) {
+      showError(peopleError);
+    } else if (!bill && tip && people) {
+      showError(billError);
+    } else {
+      removeError(peopleError);
+      removeError(billError);
+    }
+      
+    const tipResult = calculateTipAmount(bill, tip, people);
+    const totalResult = calculateTotal(bill, tip, people);
+      
+    if (!tipResult || !totalResult) {
+      showResults(0, 0);
+    } else {
+      showResults(tipResult, totalResult);
+    }
+  })
 })
 
 resetBtn.addEventListener("click", () => {
