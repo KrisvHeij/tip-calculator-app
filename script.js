@@ -5,6 +5,8 @@ const totalEl = document.getElementById("total-amount");
 const tips = document.querySelectorAll(".tip");
 const customInput = document.querySelector(".input-custom");
 const inputContainer = document.querySelector(".input-container");
+const resetBtn = document.getElementById("reset-btn");
+
 
 // const billAmount = getBill();
 // let numOfPeople;
@@ -111,6 +113,8 @@ inputContainer.addEventListener("click", () => {
   const bill = getBill();
   const tip = selectedTip;
   const people = getNumOfPeople();
+
+  
   
   const tipResult = calculateTipAmount(bill, tip, people);
   const totalResult = calculateTotal(bill, tip, people);
@@ -126,5 +130,7 @@ inputContainer.addEventListener("input", () => {
   const totalResult = calculateTotal(bill, tip, people);
   showResults(tipResult, totalResult);
 })
+
+resetBtn.addEventListener("click", resetAll);
 
 // Validatie toevoegen als er bijv. iets niet is ingevuld
