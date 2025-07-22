@@ -6,47 +6,8 @@ const tips = document.querySelectorAll(".tip");
 const customInput = document.querySelector(".input-custom");
 const inputContainer = document.querySelector(".input-container");
 const resetBtn = document.getElementById("reset-btn");
-
-
-// const billAmount = getBill();
-// let numOfPeople;
-
-
-// function getBill() {
-//     bill.addEventListener("keyup", () => {
-//       billAmount = parseFloat(bill.value);
-//       // calculateAmount(billAmount);
-//   })
-// }
-
-// function calculateAmount(bill) {
-//   tips.forEach((tip) => {
-//     tip.addEventListener("click", () => {
-//       tips.forEach(tp => tp.classList.remove("active"));
-
-//       tip.classList.add("active");
-//       const tipPercentage = parseFloat(tip.value / 100);
-//       const totalTip = bill * tipPercentage;
-//       const totalAmount = bill + (bill * tipPercentage);
-//       console.log(totalTip)
-//       divideByPeople(totalAmount, totalTip);
-//     })
-//   })
-// }
-
-// function divideByPeople(amount, tip) {
-  
-//   people.addEventListener("keyup", () => {
-//     numOfPeople = parseFloat(people.value);
-//     const amountPerson = amount / numOfPeople;
-//     const tipPerson = tip / numOfPeople;
-//     console.log(amountPerson, tipPerson)
-//   })
-// }
-
-// getBill();
-// calculateAmount();
-
+const billError = document.getElementById("bill-error");
+const peopleError = document.getElementById("people-error");
 
 let selectedTip;
 
@@ -100,6 +61,10 @@ function showResults(tip, total) {
   totalEl.innerText = `$${total.toFixed(2)}`;
 }
 
+function showError() {
+
+}
+
 function resetAll() {
   tips.forEach(tp => tp.classList.remove("active"));
   customInput.classList.remove("active");
@@ -108,13 +73,15 @@ function resetAll() {
   peopleInput.value = "";
 }
 
-
+// Event Listeners
 inputContainer.addEventListener("click", () => {
   const bill = getBill();
   const tip = selectedTip;
   const people = getNumOfPeople();
 
-  
+  if (bill && tip && !people) {
+    console.log("error")
+  }
   
   const tipResult = calculateTipAmount(bill, tip, people);
   const totalResult = calculateTotal(bill, tip, people);
