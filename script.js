@@ -4,7 +4,7 @@ const tipEl = document.getElementById("tip-amount");
 const totalEl = document.getElementById("total-amount");
 const tips = document.querySelectorAll(".tip");
 const customInput = document.querySelector(".input-custom");
-const inputContainer = document.querySelector(".input-container");
+const container = document.querySelector(".container");
 const resetBtn = document.getElementById("reset-btn");
 const billError = document.getElementById("bill-error");
 const peopleError = document.getElementById("people-error");
@@ -61,9 +61,13 @@ function showResults(tip, total) {
   totalEl.innerText = `$${total.toFixed(2)}`;
 }
 
-// function showError(element) {
-//   element.classList.toggle("hidden", );
-// }
+function showError(element) {
+  element.classList.remove("hidden");
+}
+
+function removeError(element) {
+  element.classList.add("hidden");
+}
 
 function resetAll() {
   tips.forEach(tp => tp.classList.remove("active"));
@@ -71,10 +75,11 @@ function resetAll() {
   customInput.value = "";
   billInput.value = "";
   peopleInput.value = "";
+  resetBtn.classList.remove("active");
 }
 
 // Event Listeners
-inputContainer.addEventListener("click", () => {
+container.addEventListener("click", () => {
   const bill = getBill();
   const tip = selectedTip;
   const people = getNumOfPeople();
@@ -84,16 +89,28 @@ inputContainer.addEventListener("click", () => {
     resetBtn.classList.add("active");
   }
 
-  // if (bill && tip && !people) {
-  //   showError(peopleError);
-  // }
+  // Show error when input is empty
+  if (bill && tip && !people) {
+    showError(peopleError);
+  } else if (!bill && tip && people) {
+    showError(billError);
+  } else {
+    removeError(peopleError);
+    removeError(billError);
+  }
   
   const tipResult = calculateTipAmount(bill, tip, people);
   const totalResult = calculateTotal(bill, tip, people);
-  showResults(tipResult, totalResult);
+
+  if (!tipResult || !totalResult) {
+    showResults(0, 0);
+  } else {
+    showResults(tipResult, totalResult);
+  }
+  
 })
 
-inputContainer.addEventListener("input", () => {
+container.addEventListener("input", () => {
   const bill = getBill();
   const tip = selectedTip;
   const people = getNumOfPeople();
@@ -101,6 +118,16 @@ inputContainer.addEventListener("input", () => {
   // Hightlight resetBtn when there is input
   if (bill || tip || people) {
     resetBtn.classList.add("active");
+  }
+
+  // Show error when input is empty
+  if (bill && tip && !people) {
+    showError(peopleError);
+  } else if (!bill && tip && people) {
+    showError(billError);
+  } else {
+    removeError(peopleError);
+    removeError(billError);
   }
   
   const tipResult = calculateTipAmount(bill, tip, people);
@@ -112,5 +139,3 @@ resetBtn.addEventListener("click", () => {
   resetAll();
   showResults(0, 0);
 });
-
-// Validatie toevoegen als er bijv. iets niet is ingevuld
