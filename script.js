@@ -96,8 +96,8 @@ function calculateTotal(bill, tip, people) {
 }
 
 function showResults(tip, total) {
-  tipEl.innerText = `$${tip}`;
-  totalEl.innerText = `$${total}`;
+  tipEl.innerText = `$${tip.toFixed(2)}`;
+  totalEl.innerText = `$${total.toFixed(2)}`;
 }
 
 function resetAll() {
@@ -131,6 +131,9 @@ inputContainer.addEventListener("input", () => {
   showResults(tipResult, totalResult);
 })
 
-resetBtn.addEventListener("click", resetAll);
+resetBtn.addEventListener("click", () => {
+  resetAll();
+  showResults(0, 0);
+});
 
 // Validatie toevoegen als er bijv. iets niet is ingevuld
