@@ -97,13 +97,11 @@ function showResults(tip, total) {
   tipEl.innerText = `$${tip}`;
   totalEl.innerText = `$${total}`;
   console.log(tip);
+  console.log(total)
 }
 
 
 inputContainer.addEventListener("click", () => {
-  // console.log(getBill());
-  // console.log(selectedTip)
-  // console.log(getNumOfPeople());
   const bill = getBill();
   const tip = selectedTip;
   const people = getNumOfPeople();
@@ -114,9 +112,6 @@ inputContainer.addEventListener("click", () => {
 })
 
 inputContainer.addEventListener("input", () => {
-  // console.log(getBill());
-  // console.log(selectedTip)
-  // console.log(getNumOfPeople());
   const bill = getBill();
   const tip = selectedTip;
   const people = getNumOfPeople();
