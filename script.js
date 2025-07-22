@@ -96,9 +96,9 @@ function calculateTotal(bill, tip, people) {
 function showResults(tip, total) {
   tipEl.innerText = `$${tip}`;
   totalEl.innerText = `$${total}`;
-  console.log(tip);
-  console.log(total)
 }
+
+
 
 
 inputContainer.addEventListener("click", () => {
