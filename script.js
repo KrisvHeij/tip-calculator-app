@@ -52,30 +52,30 @@ function getBill() {
   return parseFloat(billInput.value);
 }
 
-  // EventListeners op tip-buttons
-  tips.forEach((tip) => {
-    tip.addEventListener("click", () => {
-      // Reset tip buttons & custom input field
-      customInput.classList.remove("active");
-      customInput.value = "";
-      // Add active class
-      tips.forEach(tp => tp.classList.remove("active"));
-      tip.classList.add("active");
-
-      selectedTip = parseFloat(tip.value);
-    })
-  })
-
-  // EventListener op custom input
-  customInput.addEventListener("input", () => {
-    // Reset tip buttons
-    tips.forEach(tp => tp.classList.remove("active"));
+// EventListeners op tip-buttons
+tips.forEach((tip) => {
+  tip.addEventListener("click", () => {
+    // Reset tip buttons & custom input field
+    customInput.classList.remove("active");
+    customInput.value = "";
     // Add active class
-    customInput.classList.add("active");
+    tips.forEach(tp => tp.classList.remove("active"));
+    tip.classList.add("active");
 
-    const inputValue = parseFloat(customInput.value);
-    selectedTip = inputValue;
+    selectedTip = parseFloat(tip.value);
   })
+})
+
+// EventListener op custom input
+customInput.addEventListener("input", () => {
+  // Reset tip buttons
+  tips.forEach(tp => tp.classList.remove("active"));
+  // Add active class
+  customInput.classList.add("active");
+
+  const inputValue = parseFloat(customInput.value);
+  selectedTip = inputValue;
+})
 
 function getNumOfPeople() {
   return parseFloat(peopleInput.value);
