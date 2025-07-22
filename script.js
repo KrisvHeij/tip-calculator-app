@@ -98,7 +98,13 @@ function showResults(tip, total) {
   totalEl.innerText = `$${total}`;
 }
 
-
+function resetAll() {
+  tips.forEach(tp => tp.classList.remove("active"));
+  customInput.classList.remove("active");
+  customInput.value = "";
+  billInput.value = "";
+  peopleInput.value = "";
+}
 
 
 inputContainer.addEventListener("click", () => {
