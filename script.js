@@ -70,6 +70,7 @@ function removeError(element) {
 }
 
 function resetAll() {
+  selectedTip = null;
   tips.forEach(tp => tp.classList.remove("active"));
   customInput.classList.remove("active");
   customInput.value = "";
@@ -90,7 +91,22 @@ events.forEach((event) => {
     // Hightlight resetBtn when there is input
     if (bill || tip || people) {
       resetBtn.classList.add("active");
-    }
+    } 
+
+    const allFieldsFilled = billInput.value !== "" && customInput.value !== "" || tip !== undefined && peopleInput.value !== "";
+
+    // Als alle velden zijn ingevuld en minstens één ongeldig is
+    // if (allFieldsFilled && (isNaN(bill) || isNaN(tip) || isNaN(people))) {
+    //   showResults(0, 0);
+    //   billError.innerText = "Please enter valid numbers";
+    //   billError.classList.remove("hidden");
+    //   resetBtn.classList.add("active");
+    //   // return;
+    // } else {
+    //   billError.classList.add("hidden");
+    // }
+
+    
 
     // Show error when input is empty
     if (bill && tip && !people) {
@@ -117,3 +133,5 @@ resetBtn.addEventListener("click", () => {
   resetAll();
   showResults(0, 0);
 });
+
+// Rode outline toevoegen aan errors && checken of er geen letters zijn ingevuld
