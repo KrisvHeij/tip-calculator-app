@@ -15,7 +15,7 @@ function getBill() {
   return parseFloat(billInput.value);
 }
 
-// EventListeners op tip-buttons
+// EventListeners for tip-buttons
 tips.forEach((tip) => {
   tip.addEventListener("click", () => {
     // Reset tip buttons & custom input field
@@ -29,7 +29,7 @@ tips.forEach((tip) => {
   })
 })
 
-// EventListener op custom input
+// EventListener for custom input
 customInput.addEventListener("input", () => {
   // Reset tip buttons
   tips.forEach(tp => tp.classList.remove("active"));
@@ -61,9 +61,9 @@ function showResults(tip, total) {
   totalEl.innerText = `$${total.toFixed(2)}`;
 }
 
-function showError() {
-
-}
+// function showError(element) {
+//   element.classList.toggle("hidden", );
+// }
 
 function resetAll() {
   tips.forEach(tp => tp.classList.remove("active"));
@@ -79,9 +79,14 @@ inputContainer.addEventListener("click", () => {
   const tip = selectedTip;
   const people = getNumOfPeople();
 
-  if (bill && tip && !people) {
-    console.log("error")
+  // Hightlight resetBtn when there is input
+  if (bill || tip || people) {
+    resetBtn.classList.add("active");
   }
+
+  // if (bill && tip && !people) {
+  //   showError(peopleError);
+  // }
   
   const tipResult = calculateTipAmount(bill, tip, people);
   const totalResult = calculateTotal(bill, tip, people);
@@ -92,6 +97,11 @@ inputContainer.addEventListener("input", () => {
   const bill = getBill();
   const tip = selectedTip;
   const people = getNumOfPeople();
+
+  // Hightlight resetBtn when there is input
+  if (bill || tip || people) {
+    resetBtn.classList.add("active");
+  }
   
   const tipResult = calculateTipAmount(bill, tip, people);
   const totalResult = calculateTotal(bill, tip, people);
