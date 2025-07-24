@@ -91,35 +91,31 @@ events.forEach((event) => {
     // Hightlight resetBtn when there is input
     if (bill || tip || people) {
       resetBtn.classList.add("active");
-    } 
+    }
 
-    // if (isNaN(bill) || bill <= 0) {
-    //   showError(billError);
-    //   billError.innerText = "Please enter a valid bill amount";
-    // } else {
-    //   removeError(billError);
-    // }
-
-    // if (isNaN(people) || people <= 0) {
-    //   showError(peopleError);
-    //   peopleError.innerText = "Can't be zero or empty";
-    // } else {
-    //   removeError(peopleError);
-    // }
-
-
-    // Show error when input is empty
-    if (tip && people <= 0 || tip && isNaN(people)) {
-      showError(peopleError);
-      return;
-    } else if (bill === 0 && tip && people) {
-      showError(billError);
-      return;
+    // Show error for invalid input
+    if (bill && tip && people <= 0 || bill && tip && isNaN(people)) {
+      if (people <= 0) {
+        showError(peopleError);
+        peopleError.innerText = "Can't be zero of empty";
+        return; 
+      } else if (isNaN(people)) {
+        showError(peopleError)
+        peopleError.innerText = "Please enter a number";
+      } 
     } else {
       removeError(peopleError);
+    }
+
+    if (bill <= 0 || isNaN(bill)) {
+      showError(billError);
+      billError.innertext = "Please enter a valid bill amount";
+      return;
+    } else {
       removeError(billError);
     }
-      
+
+    // Calculate & show results
     const tipResult = calculateTipAmount(bill, tip, people);
     const totalResult = calculateTotal(bill, tip, people);
       
@@ -136,4 +132,4 @@ resetBtn.addEventListener("click", () => {
   showResults(0, 0);
 });
 
-// Rode outline toevoegen aan errors && checken of er geen letters zijn ingevuld
+// Rode outline toevoegen aan errors 
