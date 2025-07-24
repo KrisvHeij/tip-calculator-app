@@ -93,26 +93,28 @@ events.forEach((event) => {
       resetBtn.classList.add("active");
     } 
 
-    const allFieldsFilled = billInput.value !== "" && customInput.value !== "" || tip !== undefined && peopleInput.value !== "";
-
-    // Als alle velden zijn ingevuld en minstens één ongeldig is
-    // if (allFieldsFilled && (isNaN(bill) || isNaN(tip) || isNaN(people))) {
-    //   showResults(0, 0);
-    //   billError.innerText = "Please enter valid numbers";
-    //   billError.classList.remove("hidden");
-    //   resetBtn.classList.add("active");
-    //   // return;
+    // if (isNaN(bill) || bill <= 0) {
+    //   showError(billError);
+    //   billError.innerText = "Please enter a valid bill amount";
     // } else {
-    //   billError.classList.add("hidden");
+    //   removeError(billError);
     // }
 
-    
+    // if (isNaN(people) || people <= 0) {
+    //   showError(peopleError);
+    //   peopleError.innerText = "Can't be zero or empty";
+    // } else {
+    //   removeError(peopleError);
+    // }
+
 
     // Show error when input is empty
-    if (bill && tip && !people) {
+    if (tip && people <= 0 || tip && isNaN(people)) {
       showError(peopleError);
-    } else if (!bill && tip && people) {
+      return;
+    } else if (bill === 0 && tip && people) {
       showError(billError);
+      return;
     } else {
       removeError(peopleError);
       removeError(billError);

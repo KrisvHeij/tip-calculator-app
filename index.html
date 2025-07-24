@@ -30,7 +30,9 @@
           <div class="input-group">
             <div class="input-group-header">
               <p class="text-preset-5">Bill</p>
-              <p id="bill-error" class="error-msg hidden">Can't be zero</p>
+              <p id="bill-error" class="error-msg hidden">
+                Please enter a valid bill amount
+              </p>
             </div>
             <input
               id="bill"
@@ -59,7 +61,7 @@
               </button>
               <input
                 class="input-custom text-preset-3"
-                type="text"
+                type="number"
                 placeholder="Custom"
               />
             </div>
@@ -67,7 +69,9 @@
           <div class="input-group">
             <div class="input-group-header">
               <p class="text-preset-5">Number of People</p>
-              <p id="people-error" class="error-msg hidden">Cant'be zero</p>
+              <p id="people-error" class="error-msg hidden">
+                Cant'be zero or empty
+              </p>
             </div>
             <input
               id="people"
