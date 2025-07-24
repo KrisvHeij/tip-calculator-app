@@ -88,6 +88,8 @@ events.forEach((event) => {
     const tip = selectedTip;
     const people = getNumOfPeople();
 
+    console.log(tip)
+
     // Hightlight resetBtn when there is input
     if (bill || tip || people) {
       resetBtn.classList.add("active");
@@ -98,21 +100,26 @@ events.forEach((event) => {
       if (people <= 0) {
         showError(peopleError);
         peopleError.innerText = "Can't be zero of empty";
+        peopleInput.classList.add("outline-red");
         return; 
       } else if (isNaN(people)) {
         showError(peopleError)
         peopleError.innerText = "Please enter a number";
+        peopleInput.classList.add("outline-red");
       } 
     } else {
       removeError(peopleError);
+      peopleInput.classList.remove("outline-red");
     }
 
     if (bill <= 0 || isNaN(bill)) {
       showError(billError);
       billError.innertext = "Please enter a valid bill amount";
+      billInput.classList.add("outline-red");
       return;
     } else {
       removeError(billError);
+      billInput.classList.remove("outline-red");
     }
 
     // Calculate & show results
@@ -131,5 +138,3 @@ resetBtn.addEventListener("click", () => {
   resetAll();
   showResults(0, 0);
 });
-
-// Rode outline toevoegen aan errors 
