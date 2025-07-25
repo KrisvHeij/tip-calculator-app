@@ -88,28 +88,26 @@ events.forEach((event) => {
     const tip = selectedTip;
     const people = getNumOfPeople();
 
-    console.log(tip)
-
     // Hightlight resetBtn when there is input
     if (bill || tip || people) {
       resetBtn.classList.add("active");
     }
 
     // Show error for invalid input
-    if (bill && tip && people <= 0 || bill && tip && isNaN(people)) {
+    if (bill && people <= 0 || bill && isNaN(people)) {
       if (people <= 0) {
         showError(peopleError);
-        peopleError.innerText = "Can't be zero of empty";
-        peopleInput.classList.add("outline-red");
+        peopleError.innerText = "Can't be zero or empty";
+        // peopleInput.classList.add("outline-red");
         return; 
       } else if (isNaN(people)) {
         showError(peopleError)
         peopleError.innerText = "Please enter a number";
-        peopleInput.classList.add("outline-red");
+        // peopleInput.classList.add("outline-red");
       } 
     } else {
       removeError(peopleError);
-      peopleInput.classList.remove("outline-red");
+      // peopleInput.classList.remove("outline-red");
     }
 
     if (bill <= 0 || isNaN(bill)) {
