@@ -142,6 +142,12 @@ body {
    outline: 2px solid var(--green-400);
 }
 
+/* Error state */
+.input.outline-error:hover,
+.input.outline-error:focus {
+  outline-color: var(--orange-400);
+}
+
 .input::placeholder {
   color: var(--grey-300);
 }
@@ -328,7 +334,7 @@ body {
   color: var(--green-900);
 }
 
-.outline-red {
+.outline-error {
   outline: 2px solid var(--orange-400);
 }
 

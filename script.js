@@ -93,29 +93,24 @@ events.forEach((event) => {
       resetBtn.classList.add("active");
     }
 
-    // Show error for invalid input
-    // if (bill && people <= 0 || bill && isNaN(people)) {
-    //   if (people <= 0) {
-    //     showError(peopleError);
-    //     peopleError.innerText = "Can't be zero or empty";
-    //     // peopleInput.classList.add("outline-red");
-    //     return; 
-    //   } else if (isNaN(people)) {
-    //     showError(peopleError)
-    //     peopleError.innerText = "Please enter a number";
-    //     // peopleInput.classList.add("outline-red");
-    //   } 
-    // } else {
-    //   removeError(peopleError);
-    //   // peopleInput.classList.remove("outline-red");
-    // }
-
-    if (bill <= 0 || isNaN(bill)) {
-      showError(billError);
-      billError.innertext = "Please enter a valid bill amount";
+    // Show errors for invalid bill input
+    if (bill <= 0) {
+      showError(billError)
+      billInput.classList.add("outline-error");
       return;
     } else {
       removeError(billError);
+      billInput.classList.remove("outline-error");
+    }
+
+    // Show error for invalid number of people input
+    if (people <= 0) {
+      showError(peopleError);
+      peopleInput.classList.add("outline-error");
+      return;
+    } else {
+      removeError(peopleError);
+      peopleInput.classList.remove("outline-error");
     }
 
     // Calculate & show results
